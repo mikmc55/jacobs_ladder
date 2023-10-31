@@ -1,0 +1,9 @@
+{
+  "builds": [{ "src": "*.rb", "use": "@now/ruby" }],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "your-ruby-file.rb"
+    }
+  ]
+}
