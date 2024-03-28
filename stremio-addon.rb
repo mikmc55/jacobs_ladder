@@ -5,9 +5,12 @@ require 'net/http'
 MANIFEST = {
   id: "danil0vsky.bestbyyear",
   version: "1.0.0",
+
   name: "Danil0vsky Best By Year",
   description: "A simple and much needed movies/series filter by year and rating",
+
   types: [ :movie, :series ],
+
   catalogs: [
     {
         type: :movie,
@@ -28,6 +31,7 @@ MANIFEST = {
         ]
     }
   ],
+
   resources: [
     "catalog"
   ]
@@ -94,33 +98,3 @@ class Catalog < Resource
     end
   end
 end
-
-require './stremio-addon.rb'
-
-app = Rack::Builder.new do
-  use Rack::Reloader
-  use Rack::ContentLength
-
-  map "/manifest.json" do
-    use Manifest
-  end
-
-  #map "/meta" do
-  #  use Meta
-  #end
-
-  map "/catalog" do
-    use Catalog
-  end
-
-  #map "/stream" do
-  #  use Stream
-  #end
-
-  run NotFound.new
-end.to_app
-
-run app
-
-source 'https://rubygems.org'
-gem 'rack'
