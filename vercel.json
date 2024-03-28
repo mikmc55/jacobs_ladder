@@ -3,7 +3,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "your-ruby-file.rb"
+      "dest": "stremio-addon.rb"
     }
   ]
 }
